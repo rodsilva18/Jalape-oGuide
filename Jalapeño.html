@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A complete guide to growing and caring for Jalapeño plants." />
+    <title>Jalapeño Guide</title>
+    <style>
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #3a9b3a;
+        margin: 0;
+        font-family: 'Times New Roman', Times, serif;
+        color: white;
+      }
+
+      /* ── Header ── */
+      header {
+        background-color: #1b5e20;
+        padding: 40px 20px;
+        text-align: center;
+        border-bottom: 3px solid rgba(255,255,255,0.2);
+      }
+
+      header h1 {
+        margin: 0 0 8px 0;
+        font-size: 48px;
+        letter-spacing: 1px;
+      }
+
+      header p.author {
+        margin: 0;
+        font-size: 15px;
+        opacity: 0.8;
+      }
+
+      /* ── Nav ── */
+      nav {
+        background-color: #2e7d32;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 2px solid rgba(255,255,255,0.15);
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2px;
+      }
+
+      nav ul li a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+        padding: 12px 14px;
+        transition: background-color 0.2s;
+        border-radius: 4px;
+      }
+
+      nav ul li a:hover,
+      nav ul li a:focus {
+        background-color: rgba(255,255,255,0.2);
+        outline: 2px solid rgba(255,255,255,0.5);
+      }
+
+      /* ── Main ── */
+      main {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 16px;
+      }
+
+      /* ── Hero Row ── */
+      .hero-row {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        background-color: #1b5e20;
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 10px;
+        padding: 24px;
+        margin-bottom: 12px;
+      }
+
+      .desc p {
+        font-size: 16px;
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      .hero-row img {
+        width: 180px;
+        flex-shrink: 0;
+        border-radius: 10px;
+        border: 3px solid rgba(255,255,255,0.3);
+      }
+
+      /* ── Section Wrapper ── */
+      .section-wrapper {
+        margin-bottom: 12px;
+      }
+
+      .section-with-image {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .section-with-image section {
+        flex: 1;
+      }
+
+      .section-img {
+        width: 180px;
+        flex-shrink: 0;
+        text-align: center;
+      }
+
+      .section-img img {
+        width: 100%;
+        border-radius: 10px;
+        border: 3px solid rgba(255,255,255,0.3);
+        display: block;
+      }
+
+      .section-img figcaption {
+        font-size: 12px;
+        margin-top: 6px;
+        opacity: 0.75;
+        font-style: italic;
+      }
+
+      /* ── Sections ── */
+      section {
+        background-color: #1b5e20;
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 10px;
+        padding: 20px 24px;
+      }
+
+      section h2 {
+        margin: 0 0 12px 0;
+        font-size: 22px;
+        text-decoration: underline;
+        text-underline-offset: 5px;
+      }
+
+      section p {
+        font-size: 15px;
+        line-height: 1.7;
+        margin: 0 0 10px 0;
+      }
+
+      section p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* ── Watering Calculator ── */
+      .calculator {
+        background-color: rgba(0,0,0,0.2);
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin-top: 16px;
+      }
+
+      .calculator h3 {
+        margin: 0 0 14px 0;
+        font-size: 17px;
+      }
+
+      .calc-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+      }
+
+      .calculator label {
+        font-size: 15px;
+      }
+
+      .calculator input[type="number"] {
+        width: 90px;
+        padding: 7px 10px;
+        border-radius: 5px;
+        border: 1px solid rgba(255,255,255,0.4);
+        background-color: rgba(255,255,255,0.15);
+        color: white;
+        font-size: 15px;
+        font-family: 'Times New Roman', Times, serif;
+      }
+
+      .calculator input[type="number"]:focus {
+        outline: 2px solid rgba(255,255,255,0.6);
+      }
+
+      .calculator input::placeholder {
+        color: rgba(255,255,255,0.45);
+      }
+
+      .calculator button {
+        padding: 7px 18px;
+        background-color: #43a047;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 15px;
+        transition: background-color 0.2s;
+      }
+
+      .calculator button:hover,
+      .calculator button:focus {
+        background-color: #388e3c;
+        outline: 2px solid rgba(255,255,255,0.5);
+      }
+
+      .calc-result {
+        font-size: 15px;
+        background-color: rgba(255,255,255,0.1);
+        padding: 12px 16px;
+        border-radius: 6px;
+        line-height: 1.6;
+        min-height: 44px;
+      }
+
+      /* ── Footer ── */
+      footer {
+        background-color: #1b5e20;
+        border-top: 2px solid rgba(255,255,255,0.2);
+        text-align: center;
+        padding: 28px 16px;
+        margin-top: 8px;
+        font-size: 14px;
+      }
+
+      footer p {
+        margin: 5px 0;
+      }
+
+      footer a {
+        color: #a5d6a7;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      footer a:hover,
+      footer a:focus {
+        text-decoration: underline;
+      }
+
+      /* ── Responsive: Mobile ── */
+      @media (max-width: 600px) {
+        header h1 {
+          font-size: 32px;
+        }
+
+        .hero-row {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hero-row img {
+          width: 100%;
+          max-width: 280px;
+        }
+
+        .section-with-image {
+          flex-direction: column;
+        }
+
+        .section-img {
+          width: 100%;
+          max-width: 280px;
+          margin: 0 auto;
+        }
+
+        nav ul li a {
+          font-size: 13px;
+          padding: 10px 9px;
+        }
+
+        .calc-row {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <h1>Jalapeño Guide 🌶️</h1>
+      <p class="author">By Rodrigo Silva</p>
+    </header>
+
+    <nav aria-label="Page sections">
+      <ul>
+        <li><a href="#planting">Planting</a></li>
+        <li><a href="#watering">Watering</a></li>
+        <li><a href="#sunlight">Sunlight</a></li>
+        <li><a href="#problems">Problems</a></li>
+        <li><a href="#harvesting">Harvesting</a></li>
+        <li><a href="#bonus">Bonus Tip!</a></li>
+      </ul>
+    </nav>
+
+    <main>
+
+      <!-- Hero intro -->
+      <div class="hero-row">
+        <div class="desc">
+          <p>Get to know more on taking care of your Jalapeño plants with these tips. From planting your first seed to harvesting your peppers, this guide covers everything you need.</p>
+        </div>
+        <img src="jalapeno .jpg" alt="A healthy Jalapeño plant with green peppers growing on it" />
+      </div>
+
+      <!-- Planting -->
+      <div class="section-wrapper">
+        <div class="section-with-image">
+          <section id="planting">
+            <h2>Planting</h2>
+            <p>Jalapeño seeds require to be planted at least 1/4 inch deep. Once the seed is planted, moisten the soil and cover it with a Tequila Shot glass to trap humidity and help germination.</p>
+          </section>
+          <figure class="section-img">
+            <img src="marca.jpeg" alt="A small hole in soil ready to receive a Jalapeño seed" />
+          </figure>
+        </div>
+      </div>
+
+      <!-- Watering -->
+      <div class="section-wrapper">
+        <section id="watering">
+          <h2>Watering</h2>
+          <p>The optimal amount of water is about 100–350ml per day, depending on your pot size. Let the top inch of soil dry out between waterings to avoid root rot.</p>
+
+          <div class="calculator">
+            <h3>Watering Calculator</h3>
+            <div class="calc-row">
+              <label for="pot-size">Pot size (liters):</label>
+              <input
+                type="number"
+                id="pot-size"
+                min="0.5"
+                max="100"
+                step="0.5"
+                placeholder="e.g. 5"
+                aria-describedby="calc-result"
+              />
+              <button onclick="calculateWater()">Calculate</button>
+            </div>
+            <div class="calc-result" id="calc-result" role="status" aria-live="polite">
+              Enter your pot size above to get a watering recommendation.
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sunlight -->
+      <div class="section-wrapper">
+        <div class="section-with-image">
+          <section id="sunlight">
+            <h2>Sunlight</h2>
+            <p>Jalapeños need approximately 8–10 hours of direct sunlight per day without anything blocking them. Grow them in the sunniest open spot you can find.</p>
+          </section>
+          <figure class="section-img">
+            <img src="jalapeño with sun.jpg" alt="A Jalapeño plant growing outdoors in direct sunlight" />
+          </figure>
+        </div>
+      </div>
+
+      <!-- Problems -->
+      <div class="section-wrapper">
+        <section id="problems">
+          <h2>Problems</h2>
+          <p>The most common issues when caring for Jalapeño plants are leaves turning brown from overwatering, and pests such as ants or spider mites. Check your plant regularly and water only when the top layer of soil feels dry.</p>
+        </section>
+      </div>
+
+      <!-- Harvesting -->
+      <div class="section-wrapper">
+        <section id="harvesting">
+          <h2>Harvesting</h2>
+          <p>Pick your Jalapeños when they're about 3–4 inches long and feel firm to the touch. They should be a deep, dark green color. You can also leave them on the plant longer to turn red, which makes them slightly sweeter.</p>
+        </section>
+      </div>
+
+      <!-- Bonus -->
+      <div class="section-wrapper">
+        <div class="section-with-image">
+          <section id="bonus">
+            <h2>Bonus Tip!</h2>
+            <p>Buy a small greenhouse kit with peat pellets — you can find these at Walmart or Home Depot. Follow the instructions included with the product.</p>
+            <p>This creates a greenhouse effect and your plants will grow significantly faster!</p>
+          </section>
+          <figure class="section-img">
+            <img src="pellet.jpeg" alt="A tiny Jalapeño seedling sprouting from a peat pellet" />
+            <figcaption>Look at the Jalapeño sprouting!</figcaption>
+          </figure>
+        </div>
+      </div>
+
+    </main>
+
+    <footer>
+      <p>Made by Rodrigo Silva &bull; Jalapeño Guide</p>
+      <p>
+        <a
+          href="https://www.linkedin.com/in/YOUR-PROFILE-HERE"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Rodrigo Silva's LinkedIn profile (opens in new tab)"
+        >
+          Connect on LinkedIn
+        </a>
+      </p>
+    </footer>
+
+    <script>
+      function calculateWater() {
+        const input = document.getElementById('pot-size');
+        const result = document.getElementById('calc-result');
+        const potSize = parseFloat(input.value);
+
+        if (!potSize || potSize <= 0) {
+          result.textContent = '⚠️ Please enter a valid pot size greater than 0.';
+          return;
+        }
+
+        let minWater, maxWater, frequency, tip;
+
+        if (potSize < 3) {
+          minWater = 80;
+          maxWater = 130;
+          frequency = 'once a day';
+          tip = 'Small pots dry out fast — check the soil daily.';
+        } else if (potSize <= 6) {
+          minWater = 150;
+          maxWater = 220;
+          frequency = 'once a day';
+          tip = 'Water in the morning so the roots absorb it before the heat of the day.';
+        } else if (potSize <= 12) {
+          minWater = 230;
+          maxWater = 320;
+          frequency = 'once a day';
+          tip = 'Stick your finger 1 inch into the soil — if it feels dry, it\'s time to water.';
+        } else {
+          minWater = 350;
+          maxWater = 500;
+          frequency = 'every 1–2 days';
+          tip = 'Larger pots retain moisture longer, so always check before watering.';
+        }
+
+        result.innerHTML =
+          `💧 For a <strong>${potSize}L pot</strong>: water with <strong>${minWater}–${maxWater}ml</strong> ${frequency}. <br><em>${tip}</em>`;
+      }
+
+      document.getElementById('pot-size').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') calculateWater();
+      });
+    </script>
+
+  </body>
+</html>
